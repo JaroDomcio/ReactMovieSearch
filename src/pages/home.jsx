@@ -26,7 +26,7 @@ function Home(){
 
 
             <div className="movies-grid">
-                {movies.map(movie => movie.title.toLowerCase().startsWith(searchQuery.toLowerCase()) && (
+                {movies.map(movie => (
                     <MovieCard key={movie.id} movie={movie} />
                     ))}
             </div>
