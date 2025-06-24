@@ -11,8 +11,9 @@ function Home(){
         { id: 3, title: "The Dark Knight", year: 2008 }
     ];
 
-    const handleSearch = () => {
-        alert(`Searching for: ${searchQuery}`);
+    const handleSearch = (e) => {
+        e.preventDefault()
+        alert(`Searching for: ${searchQuery}`)
     };
 
     return(
@@ -25,7 +26,9 @@ function Home(){
 
 
             <div className="movies-grid">
-                {movies.map(movie => (<MovieCard key={movie.id} movie={movie} />))}
+                {movies.map(movie => movie.title.toLowerCase().startsWith(searchQuery.toLowerCase()) && (
+                    <MovieCard key={movie.id} movie={movie} />
+                    ))}
             </div>
 
 
